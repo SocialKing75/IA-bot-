@@ -1,0 +1,7 @@
+flask 
+flask-cors 
+ollama 
+beautifulsoup4 
+requests
+
+
