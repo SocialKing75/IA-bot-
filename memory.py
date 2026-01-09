@@ -1,13 +1,10 @@
-# conversation_state = {
-#     "objectif": None,
-#     "type": None,
-#     "budget": None
-# }
+conversation_history = []
 
-# def update_state(data):
-#     for k, v in data.items():
-#         if v:
-#             conversation_state[k] = v
+def add_message(role, content):
+    conversation_history.append({
+        "role": role,
+        "content": content
+    })
 
-# def is_ready():
-#     return all(conversation_state.values())
+def get_history():
+    return conversation_history
