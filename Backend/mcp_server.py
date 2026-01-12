@@ -1,7 +1,6 @@
 # OLLAMA_PATH = r"C:\Users\Khadija Darkaoui\AppData\Local\Programs\Ollama\ollama.exe"
-
 import subprocess
-from memory import add_message, get_history
+from Backend.memory import add_message, get_history
 
 OLLAMA_PATH = r"C:\Users\Khadija Darkaoui\AppData\Local\Programs\Ollama\ollama.exe"
 

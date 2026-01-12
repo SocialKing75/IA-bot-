@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from mcp_server import chat_with_llm
+from Backend.mcp_server import chat_with_llm
 
 app = Flask(__name__)
 
