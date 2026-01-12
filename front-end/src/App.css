@@ -1,0 +1,332 @@
+/* Style global */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f0f2f5;
+  color: #000;
+}
+
+/* Conteneur principal - Doit être en position relative pour la navbar absolue */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+/* =========================================
+   1. BARRE DE NAVIGATION (NAVBAR SUR L'IMAGE)
+   ========================================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  
+  /* POSITIONNEMENT SUR L'IMAGE */
+  position: absolute; 
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001; 
+  
+  /* STYLE TRANSPARENT */
+  background-color: transparent; 
+  border-bottom: none;
+}
+
+.nav-logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: white; /* Blanc pour ressortir sur l'image */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white; /* Liens en blanc */
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+  color: white;
+}
+
+/* =========================================
+   2. SECTION ACCROCHE (HERO HEADER)
+   ========================================= */
+.hero-header {
+  width: 100%;
+  height: 1000px; /* Grande hauteur conservée pour la photo */
+  background-image: url('/Fond header.png'); 
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.3); /* Voile sombre pour la lisibilité */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10%;
+}
+
+.hero-header-content {
+  text-align: center;
+  color: white;
+  max-width: 900px;
+}
+
+.hero-main-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-intro {
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.6;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   3. SECTION CENTRALE (IA CHAT)
+   ========================================= */
+.main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1200px;
+  width: 80%;
+  margin: 0 auto;
+  min-height: 70vh;
+  padding: 80px 0;
+}
+
+.hero-left {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-left h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.chat-input-area {
+  background: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+}
+
+.chat-input-area input {
+  flex: 1;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+.send-button { background: none; border: none; cursor: pointer; }
+
+.chat-history {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.user-query { align-self: flex-end; background-color: #007bff; color: white; padding: 10px 15px; border-radius: 15px; }
+.bot-reply { align-self: flex-start; background-color: #e9e9eb; color: #333; padding: 10px 15px; border-radius: 15px; }
+
+.hero-right-image img {
+  width: 100%;
+  max-width: 480px;
+  height: 550px;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+/* =========================================
+   4. SECTION RANDONNÉES
+   ========================================= */
+.trending-section {
+  width: 100% !important;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f9fa !important;
+  background-image: url('/Topographie.png?v=2') !important; 
+  background-repeat: repeat !important; 
+  background-position: center !important;
+  background-size: 400px !important; 
+  background-attachment: scroll !important; 
+  border-top: 1px solid #eee;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  font-size: 1.2rem;
+  color: #333;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.rando-card {
+  height: 500px;      
+  border-radius: 20px;
+  overflow: hidden;   
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: flex;      
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.rando-card:hover {
+  transform: translateY(-8px);
+}
+
+.full-card-img {
+  width: 100%;
+  height: 100%;       
+  object-fit: cover;  
+  display: block;
+}
+
+/* =========================================
+   5. SECTION ARTICLES
+   ========================================= */
+.articles-section {
+  padding: 80px 10%;
+  background-color: #f0f2f5;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.article-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 25px;
+  margin-bottom: 15px;
+}
+
+.article-date {
+  background-color: #435b44;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+.category-badge {
+  display: inline-block;
+  background-color: #a3c1da; 
+  color: white;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.read-more-btn {
+  background-color: #ffffff !important;
+  color: #222 !important;
+  border: 1px solid #ccc !important;
+  padding: 10px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.read-more-btn:hover {
+  background-color: #f8f9fa !important;
+  border-color: #999;
+  transform: translateX(5px);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+  .section-header h2 { font-size: 1.8rem; }
+  .section-header p { font-size: 1rem; padding: 0 20px; }
+  .cards-grid, .articles-grid { grid-template-columns: 1fr; }
+  .main-content { flex-direction: column; text-align: center; width: 90%; }
+  .hero-left h1 { font-size: 2rem; }
+  .rando-card { height: 400px; }
+  .trending-section { background-size: 150px !important; } 
+  .hero-main-title { font-size: 2rem; }
+  /* En mobile, on remet la navbar en blanc classique pour la lisibilité */
+  .navbar { position: relative; background-color: white; flex-direction: column; gap: 15px; }
+  .nav-logo, .nav-links a { color: #222; }
+}
