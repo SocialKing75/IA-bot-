@@ -182,7 +182,7 @@ function App() {
         </div>
 
         <div className="footer-bottom">
-          <p>© Copyright 2023 | <a href="#">Mentions légales</a> | Tous droits réservés | Propulsé par Engie®</p>
+          <p>© Copyright 2023 | <a href="#">Mentions légales</a> | Tous droits réservés | Propulsé par Sentiers Libresgit add .®</p>
         </div>
       </footer>
     </div>
