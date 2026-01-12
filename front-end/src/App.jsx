@@ -30,9 +30,9 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* 1. BARRE DE NAVIGATION (NAVBAR) */}
+      {/* 1. BARRE DE NAVIGATION (HAUT) - TEXTE BLANC STYLE LOGO */}
       <nav className="navbar">
-        <div className="nav-logo">Sentiers Libres</div>
+        <div className="nav-logo-text">Sentiers Libres</div> 
         <ul className="nav-links">
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#conseils">Nos conseils</a></li>
@@ -41,7 +41,7 @@ function App() {
         </ul>
       </nav>
 
-      {/* 2. SECTION ACCROCHE (HERO HEADER AVEC IMAGE DE FOND) */}
+      {/* 2. SECTION ACCROCHE (HERO HEADER) */}
       <header className="hero-header">
         <div className="hero-overlay">
           <div className="hero-header-content">
@@ -97,11 +97,9 @@ function App() {
           <div className="card rando-card">
             <img src="/Jarak.png" alt="JARAK" className="full-card-img" />
           </div>
-
           <div className="card rando-card">
             <img src="/Auvergne.png" alt="Volcans d'Auvergne" className="full-card-img" />
           </div>
-
           <div className="card rando-card">
             <img src="/Pyrenees.png" alt="Pyrénées Orientales" className="full-card-img" />
           </div>
@@ -130,7 +128,7 @@ function App() {
             <span className="article-date">05 mai 2025</span>
             <h3>Préparer l'essentiel</h3>
             <span className="category-badge">Organisation</span>
-            <p>Avant de partir, il y a ce moment suspendu où chaque objet compte. Une carte, une boussole...</p>
+            <p>Avant de partir, il y a ce moment suspendu où chaque objet compte.</p>
             <button className="read-more-btn">Lire l'article →</button>
           </article>
 
@@ -139,11 +137,54 @@ function App() {
             <span className="article-date">05 mai 2025</span>
             <h3>Le luxe du minimal</h3>
             <span className="category-badge">Camping</span>
-            <p>Quand le feu crépite et que la forêt s'éveille doucement, on comprend que le confort n'a rien à voir.</p>
+            <p>Quand le feu crépite et que la forêt s'éveille doucement...</p>
             <button className="read-more-btn">Lire l'article →</button>
           </article>
         </div>
       </section>
+
+      {/* 6. PIED DE PAGE (BAS) - IMAGE CONSERVÉE */}
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-column logo-col">
+            {/* On utilise footer-logo-img pour cibler le style image du CSS */}
+            <img src="/Logo Sentiers Libres.png" alt="Sentiers Libres" className="footer-logo-img" />
+          </div>
+
+          <div className="footer-column links-col">
+            <h3>Plan du site</h3>
+            <div className="footer-links-grid">
+              <div className="footer-links-left">
+                <a href="#accueil">Accueil</a>
+                <a href="#conseils">Nos conseils</a>
+                <a href="#rando">Randonnées incontournables</a>
+              </div>
+              <div className="footer-links-right">
+                <a href="#articles">Articles</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="footer-column social-col">
+            <h3>Suivez-nous sur nos réseaux !</h3>
+            <div className="social-icons">
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+                <img src="/Logo Linkedin.png" alt="" className="social-icon-img" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer">
+                <img src="/Logo Instagram.png" alt="" className="social-icon-img" />
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                <img src="/Logo Facebook.png" alt="" className="social-icon-img" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p>© Copyright 2023 | <a href="#">Mentions légales</a> | Tous droits réservés | Propulsé par Engie®</p>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -6,7 +6,7 @@ body {
   color: #000;
 }
 
-/* Conteneur principal - Doit être en position relative pour la navbar absolue */
+/* Conteneur principal */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -15,30 +15,31 @@ body {
 }
 
 /* =========================================
-   1. BARRE DE NAVIGATION (NAVBAR SUR L'IMAGE)
+   1. BARRE DE NAVIGATION (HAUT)
    ========================================= */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 10%;
-  
-  /* POSITIONNEMENT SUR L'IMAGE */
   position: absolute; 
   top: 0;
   left: 0;
   right: 0;
   z-index: 1001; 
-  
-  /* STYLE TRANSPARENT */
   background-color: transparent; 
   border-bottom: none;
 }
 
-.nav-logo {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: white; /* Blanc pour ressortir sur l'image */
+/* Style pour le TEXTE "Sentiers Libres" en haut */
+.nav-logo-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;       /* Extra gras pour imiter l'image */
+  color: white;           /* Texte blanc pur */
+  letter-spacing: -1.5px; /* Lettres resserrées pour l'aspect logo */
+  text-transform: none;
+  cursor: default;
 }
 
 .nav-links {
@@ -51,7 +52,7 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: white; /* Liens en blanc */
+  color: white; 
   font-weight: 500;
   transition: opacity 0.3s;
 }
@@ -66,7 +67,7 @@ body {
    ========================================= */
 .hero-header {
   width: 100%;
-  height: 1000px; /* Grande hauteur conservée pour la photo */
+  height: 1000px; 
   background-image: url('/Fond header.png'); 
   background-size: cover;
   background-position: center;
@@ -77,7 +78,7 @@ body {
 }
 
 .hero-overlay {
-  background: rgba(0, 0, 0, 0.3); /* Voile sombre pour la lisibilité */
+  background: rgba(0, 0, 0, 0.3);
   width: 100%;
   height: 100%;
   display: flex;
@@ -315,6 +316,92 @@ body {
 }
 
 /* =========================================
+   6. PIED DE PAGE (BAS)
+   ========================================= */
+.footer {
+  background-color: #000; 
+  color: white;
+  padding: 60px 10% 20px 10%;
+  margin-top: 0px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 40px;
+}
+
+/* On force l'affichage de l'IMAGE du footer */
+.footer-logo-img {
+  height: 60px !important;  /* Force la hauteur */
+  width: auto !important;    /* Garde le ratio */
+  display: block !important; /* Force l'affichage */
+  opacity: 1 !important;     /* Assure la visibilité */
+}
+
+.footer-column h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.footer-links-grid {
+  display: flex;
+  gap: 60px;
+}
+
+.footer-links-left, .footer-links-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.3s;
+}
+
+.footer-column a:hover {
+  opacity: 0.7;
+}
+
+/* ICÔNES SOCIALES */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icon-img {
+  width: 32px;  
+  height: 32px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+  filter: brightness(0) invert(1); 
+}
+
+.social-icon-img:hover {
+  transform: scale(1.15);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.footer-bottom a {
+  color: #888;
+  text-decoration: underline;
+}
+
+/* =========================================
    RESPONSIVE
    ========================================= */
 @media (max-width: 768px) {
@@ -326,7 +413,13 @@ body {
   .rando-card { height: 400px; }
   .trending-section { background-size: 150px !important; } 
   .hero-main-title { font-size: 2rem; }
-  /* En mobile, on remet la navbar en blanc classique pour la lisibilité */
   .navbar { position: relative; background-color: white; flex-direction: column; gap: 15px; }
-  .nav-logo, .nav-links a { color: #222; }
+  
+  /* En mobile, on s'assure que le texte du haut redevient noir si le fond devient blanc */
+  .nav-logo-text { color: #222; }
+  
+  .nav-links a { color: #222; }
+  .footer-content { flex-direction: column; text-align: center; }
+  .footer-links-grid { justify-content: center; gap: 30px; }
+  .social-icons { justify-content: center; }
 }
