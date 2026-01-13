@@ -155,7 +155,50 @@ function App() {
           </article>
         </div>
       </section>
+        
 
+      {/* 6. PIED DE PAGE (BAS) - IMAGE CONSERVÉE */}
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-column logo-col">
+            {/* On utilise footer-logo-img pour cibler le style image du CSS */}
+            <img src="/Logo Sentiers Libres.png" alt="Sentiers Libres" className="footer-logo-img" />
+          </div>
+ 
+          <div className="footer-column links-col">
+            <h3>Plan du site</h3>
+            <div className="footer-links-grid">
+              <div className="footer-links-left">
+                <a href="#accueil">Accueil</a>
+                <a href="#conseils">Nos conseils</a>
+                <a href="#rando">Randonnées incontournables</a>
+              </div>
+              <div className="footer-links-right">
+                <a href="#articles">Articles</a>
+              </div>
+            </div>
+          </div>
+ 
+          <div className="footer-column social-col">
+            <h3>Suivez-nous sur nos réseaux !</h3>
+            <div className="social-icons">
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+                <img src="/Logo Linkedin.png" alt="" className="social-icon-img" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer">
+                <img src="/Logo Instagram.png" alt="" className="social-icon-img" />
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                <img src="/Logo Facebook.png" alt="" className="social-icon-img" />
+              </a>
+            </div>
+          </div>
+        </div>
+ 
+        <div className="footer-bottom">
+          <p>© Copyright 2023 | <a href="#">Mentions légales</a> | Tous droits réservés | Propulsé par Engie®</p>
+        </div>
+      </footer>
           {isChatOpen && (
       <div className="chat-overlay">
         <div className="chat-widget">
@@ -201,6 +244,7 @@ function App() {
     )}
     </div>
   );
+
 }
 
 export default App;

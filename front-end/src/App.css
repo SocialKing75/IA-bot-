@@ -501,3 +501,112 @@ body {
   100% { opacity: 0.3; }
 }
 
+/* =========================================
+   6. PIED DE PAGE (BAS)
+   ========================================= */
+.footer {
+  background-color: #000;
+  color: white;
+  padding: 60px 10% 20px 10%;
+  margin-top: 0px;
+}
+ 
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 40px;
+}
+ 
+/* On force l'affichage de l'IMAGE du footer */
+.footer-logo-img {
+  height: 60px !important;  /* Force la hauteur */
+  width: auto !important;    /* Garde le ratio */
+  display: block !important; /* Force l'affichage */
+  opacity: 1 !important;     /* Assure la visibilité */
+}
+ 
+.footer-column h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+ 
+.footer-links-grid {
+  display: flex;
+  gap: 60px;
+}
+ 
+.footer-links-left, .footer-links-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+ 
+.footer-column a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.3s;
+}
+ 
+.footer-column a:hover {
+  opacity: 0.7;
+}
+ 
+/* ICÔNES SOCIALES */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+ 
+.social-icon-img {
+  width: 32px;  
+  height: 32px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+  filter: brightness(0) invert(1);
+}
+ 
+.social-icon-img:hover {
+  transform: scale(1.15);
+}
+ 
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.8rem;
+  color: #888;
+}
+ 
+.footer-bottom a {
+  color: #888;
+  text-decoration: underline;
+}
+ 
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+  .section-header h2 { font-size: 1.8rem; }
+  .section-header p { font-size: 1rem; padding: 0 20px; }
+  .cards-grid, .articles-grid { grid-template-columns: 1fr; }
+  .main-content { flex-direction: column; text-align: center; width: 90%; }
+  .hero-left h1 { font-size: 2rem; }
+  .rando-card { height: 400px; }
+  .trending-section { background-size: 150px !important; }
+  .hero-main-title { font-size: 2rem; }
+  .navbar { position: relative; background-color: white; flex-direction: column; gap: 15px; }
+ 
+  /* En mobile, on s'assure que le texte du haut redevient noir si le fond devient blanc */
+  .nav-logo-text { color: #222; }
+ 
+  .nav-links a { color: #222; }
+  .footer-content { flex-direction: column; text-align: center; }
+  .footer-links-grid { justify-content: center; gap: 30px; }
+  .social-icons { justify-content: center; }
+}
+ 
