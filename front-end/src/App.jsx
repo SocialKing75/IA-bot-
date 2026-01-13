@@ -52,9 +52,9 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* 1. BARRE DE NAVIGATION (NAVBAR) */}
+      {/* 1. BARRE DE NAVIGATION (HAUT) - TEXTE BLANC STYLE LOGO */}
       <nav className="navbar">
-        <div className="nav-logo">Sentiers Libres</div>
+        <div className="nav-logo-text">Sentiers Libres</div> 
         <ul className="nav-links">
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#conseils">Nos conseils</a></li>
@@ -110,11 +110,9 @@ function App() {
           <div className="card rando-card">
             <img src="/Jarak.png" alt="JARAK" className="full-card-img" />
           </div>
-
           <div className="card rando-card">
             <img src="/Auvergne.png" alt="Volcans d'Auvergne" className="full-card-img" />
           </div>
-
           <div className="card rando-card">
             <img src="/Pyrenees.png" alt="Pyrénées Orientales" className="full-card-img" />
           </div>
@@ -143,7 +141,7 @@ function App() {
             <span className="article-date">05 mai 2025</span>
             <h3>Préparer l'essentiel</h3>
             <span className="category-badge">Organisation</span>
-            <p>Avant de partir, il y a ce moment suspendu où chaque objet compte. Une carte, une boussole...</p>
+            <p>Avant de partir, il y a ce moment suspendu où chaque objet compte.</p>
             <button className="read-more-btn">Lire l'article →</button>
           </article>
 
@@ -152,7 +150,7 @@ function App() {
             <span className="article-date">05 mai 2025</span>
             <h3>Le luxe du minimal</h3>
             <span className="category-badge">Camping</span>
-            <p>Quand le feu crépite et que la forêt s'éveille doucement, on comprend que le confort n'a rien à voir.</p>
+            <p>Quand le feu crépite et que la forêt s'éveille doucement...</p>
             <button className="read-more-btn">Lire l'article →</button>
           </article>
         </div>
