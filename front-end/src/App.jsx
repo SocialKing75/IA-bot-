@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 import './App.css';
@@ -5,28 +6,49 @@ import './App.css';
 function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  
 
   const handleSend = async () => {
-    if (!input.trim()) return;
+  if (!input.trim()) return;
 
-    const userMessage = { text: input, isBot: false };
-    setMessages([...messages, userMessage]);
-    const currentInput = input;
-    setInput("");
+  const userMessage = { text: input, isBot: false };
+  setMessages((prev) => [...prev, userMessage]);
+  setInput("");
 
-    try {
-      const response = await fetch('http://localhost:5000/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: currentInput }),
-      });
-      const data = await response.json();
+  const thinkingMessage = { text: "Le guide réfléchit...", isBot: true, thinking: true };
+  setMessages((prev) => [...prev, thinkingMessage]);
 
-      setMessages((prev) => [...prev, { text: data.response, isBot: true }]);
-    } catch (error) {
-      console.error("Erreur de connexion", error);
-    }
-  };
+  try {
+    const response = await fetch('http://localhost:5000/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: userMessage.text }),
+    });
+
+    const data = await response.json();
+
+    setMessages((prev) =>
+          prev.map((msg) =>
+            msg.thinking
+              ? { text: data.bot, isBot: true }
+              : msg
+          )
+        );
+
+  } catch (error) {
+    console.error("Erreur de connexion", error);
+ 
+       setMessages((prev) =>
+      prev.map((msg) =>
+        msg.thinking
+          ? { text: "Erreur de connexion 😢", isBot: true }
+          : msg
+      )
+    );
+
+  }
+};
 
   return (
     <div className="app-container">
@@ -41,7 +63,7 @@ function App() {
         </ul>
       </nav>
 
-      {/* 2. SECTION ACCROCHE (HERO HEADER AVEC IMAGE DE FOND) */}
+      {/* 2. SECTION ACCROCHE*/}
       <header className="hero-header">
         <div className="hero-overlay">
           <div className="hero-header-content">
@@ -58,26 +80,17 @@ function App() {
         <div className="hero-left">
           <h1>Trouvez votre randonnée idéale avec notre assistant intelligent</h1>
           <p>Indiquez votre niveau, votre région, vos envies et laissez vous guider</p>
-          
-          <div className="chat-input-area">
+            <div 
+            className="chat-input-area"
+            onClick={() => setIsChatOpen(true)}
+            style={{ cursor: "pointer" }}
+          >
             <input 
-              type="text" 
-              placeholder="Je recherche une randonnée en Bretagne..." 
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+              type="text"
+              placeholder="Je recherche une randonnée en Bretagne..."
+              disabled
+              style={{ pointerEvents: "none" }}
             />
-            <button onClick={handleSend} className="send-button">
-              <Send size={24} color="#000" />
-            </button>
-          </div>
-
-          <div className="chat-history">
-            {messages.map((msg, index) => (
-              <div key={index} className={msg.isBot ? "bot-reply" : "user-query"}>
-                {msg.text}
-              </div>
-            ))}
           </div>
         </div>
 
@@ -144,6 +157,50 @@ function App() {
           </article>
         </div>
       </section>
+
+          {isChatOpen && (
+      <div className="chat-overlay">
+        <div className="chat-widget">
+
+          {/* HEADER */}
+          <div className="chat-header">
+            <h3>Assistant randonnée</h3>
+            <button onClick={() => setIsChatOpen(false)}>✕</button>
+          </div>
+
+          {/* MESSAGES */}
+          <div className="chat-messages">
+            {messages.length === 0 && (
+              <div className="bot-reply">
+                Bonjour 😊 Je serai votre guide pour trouver votre randonnée idéale.
+              </div>
+            )}
+
+            {messages.map((msg, index) => (
+              <div
+                key={index}
+                className={msg.isBot ? "bot-reply" : "user-query"}
+              >
+                {msg.text}
+              </div>
+            ))}
+          </div>
+
+          {/* INPUT */}
+          <div className="chat-input">
+            <input
+              type="text"
+              placeholder="Posez votre question..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            />
+            <button onClick={handleSend}>Envoyer</button>
+          </div>
+
+        </div>
+      </div>
+    )}
     </div>
   );
 }

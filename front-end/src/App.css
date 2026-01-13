@@ -330,3 +330,108 @@ body {
   .navbar { position: relative; background-color: white; flex-direction: column; gap: 15px; }
   .nav-logo, .nav-links a { color: #222; }
 }
+
+
+/* ================================
+   CHAT WIDGET (MODAL)
+================================ */
+
+.chat-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-widget {
+  background: white;
+  width: 420px;
+  height: 550px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* HEADER */
+.chat-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.chat-header h3 {
+  margin: 0;
+}
+
+.chat-header button {
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+/* MESSAGES */
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* INPUT */
+.chat-input {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.chat-input button {
+  padding: 12px 18px;
+  border-radius: 20px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+/* Teaser cliquable */
+.chat-teaser {
+  cursor: pointer;
+}
+
+.chat-teaser input {
+  cursor: pointer;
+}
+
+.loading {
+  font-style: italic;
+  opacity: 0.7;
+  animation: blink 1.4s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; }
+}
+
