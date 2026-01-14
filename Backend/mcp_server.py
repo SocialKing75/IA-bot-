@@ -1,24 +1,25 @@
-# OLLAMA_PATH = r"C:\Users\Khadija Darkaoui\AppData\Local\Programs\Ollama\ollama.exe"
+import os
 import subprocess
 from memory import add_message, get_history
+from knowledge import query_items
 
-OLLAMA_PATH = r"C:\Users\Khadija Darkaoui\AppData\Local\Programs\Ollama\ollama.exe"
+OLLAMA_CMD = os.environ.get("OLLAMA_CMD", "ollama")
 
 def ask_llama(prompt):
-    process = subprocess.Popen(
-        [OLLAMA_PATH, "run", "llama3"],
-        stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-        encoding="utf-8"
-    )
-    output, error = process.communicate(prompt)
-
-    if error:
-        print("Ollama error:", error)
-
-    return output.strip()
+    """Appel à l'outil Ollama CLI si disponible (configurable via la variable d'env OLLAMA_CMD)."""
+    try:
+        # Utiliser subprocess.run pour envoyer le prompt en stdin
+        result = subprocess.run([OLLAMA_CMD, "run", "llama3"], input=prompt, text=True, capture_output=True, check=False)
+        if result.stderr:
+            print("Ollama stderr:", result.stderr)
+        return (result.stdout or "").strip()
+    except FileNotFoundError:
+        # Ollama non installé ou commande introuvable
+        print("Ollama CLI not found. Please install ollama or set OLLAMA_CMD env var.")
+        return "Désolé, le modèle n'est pas disponible localement (Ollama)."  
+    except Exception as e:
+        print("Error calling Ollama:", e)
+        return "Désolé, une erreur est survenue lors de l'appel au modèle."  
 
 
 def chat_with_llm(user_message):
@@ -44,9 +45,21 @@ def chat_with_llm(user_message):
             role = "Utilisateur" if msg["role"] == "user" else "Assistant"
             history_text += f"{role} : {msg['content']}\n"
 
+    # Inclure les connaissances pertinentes (Wikipedia / scrapers)
+    relevant = query_items(user_message, top_k=5)
+    knowledge_text = ""
+    if relevant:
+        knowledge_text = "Connaissances pertinentes:\n"
+        for it, score in relevant:
+            snippet = it.content[:800].replace("\n", " ")
+            knowledge_text += f"- {it.title or it.url} ({it.source}): {snippet[:400]}...\n"
+
     # Prompt principal
     prompt = f"""
 Tu es un assistant expert en randonnée et tourisme nature.
+
+Voici les connaissances disponibles :
+{knowledge_text}
 
 Voici l'historique de la conversation :
 {history_text}
