@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 import './App.css';
@@ -7,52 +6,49 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isChatOpen, setIsChatOpen] = useState(false);
-  
 
   const handleSend = async () => {
-  if (!input.trim()) return;
+    if (!input.trim()) return;
 
-  const userMessage = { text: input, isBot: false };
-  setMessages((prev) => [...prev, userMessage]);
-  setInput("");
+    const userMessage = { text: input, isBot: false };
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
 
-  const thinkingMessage = { text: "Le guide réfléchit...", isBot: true, thinking: true };
-  setMessages((prev) => [...prev, thinkingMessage]);
+    const thinkingMessage = { text: "Le guide réfléchit...", isBot: true, thinking: true };
+    setMessages((prev) => [...prev, thinkingMessage]);
 
-  try {
-    const response = await fetch('http://localhost:5000/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: userMessage.text }),
-    });
+    try {
+      const response = await fetch('http://localhost:5000/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMessage.text }),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    setMessages((prev) =>
-          prev.map((msg) =>
-            msg.thinking
-              ? { text: data.bot, isBot: true }
-              : msg
-          )
-        );
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.thinking
+            ? { text: data.bot, isBot: true }
+            : msg
+        )
+      );
 
-  } catch (error) {
-    console.error("Erreur de connexion", error);
- 
-       setMessages((prev) =>
-      prev.map((msg) =>
-        msg.thinking
-          ? { text: "Erreur de connexion 😢", isBot: true }
-          : msg
-      )
-    );
-
-  }
-};
+    } catch (error) {
+      console.error("Erreur de connexion", error);
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.thinking
+            ? { text: "Erreur de connexion 😢", isBot: true }
+            : msg
+        )
+      );
+    }
+  };
 
   return (
     <div className="app-container">
-      {/* 1. BARRE DE NAVIGATION (HAUT) - TEXTE BLANC STYLE LOGO */}
+      {/* 1. BARRE DE NAVIGATION (HAUT) */}
       <nav className="navbar">
         <div className="nav-logo-text">Sentiers Libres</div> 
         <ul className="nav-links">
@@ -63,8 +59,8 @@ function App() {
         </ul>
       </nav>
 
-      {/* 2. SECTION ACCROCHE*/}
-      <header className="hero-header">
+      {/* 2. SECTION ACCROCHE */}
+      <header className="hero-header" id="accueil">
         <div className="hero-overlay">
           <div className="hero-header-content">
             <h2 className="hero-main-title">Partez à la découverte des plus beaux sentiers.</h2>
@@ -76,11 +72,11 @@ function App() {
       </header>
 
       {/* 3. SECTION PRINCIPALE (ASSISTANT IA) */}
-      <div className="main-content">
+      <div className="main-content" id="conseils">
         <div className="hero-left">
           <h1>Trouvez votre randonnée idéale avec notre assistant intelligent</h1>
           <p>Indiquez votre niveau, votre région, vos envies et laissez vous guider</p>
-            <div 
+          <div 
             className="chat-input-area"
             onClick={() => setIsChatOpen(true)}
             style={{ cursor: "pointer" }}
@@ -100,7 +96,7 @@ function App() {
       </div>
 
       {/* 4. SECTION RANDONNÉES INCONTOURNABLES */}
-      <section className="trending-section">
+      <section className="trending-section" id="rando">
         <div className="section-header">
           <h2>Randonnées incontournables</h2>
           <p>Des parcours testés et approuvés pour une immersion garantie.</p>
@@ -119,8 +115,8 @@ function App() {
         </div>
       </section>
 
-      {/* 5. SECTION ARTICLES */}
-      <section className="articles-section">
+      {/* 5. SECTION ARTICLES - AVEC LIENS CLIQUABLES */}
+      <section className="articles-section" id="articles">
         <div className="section-header">
           <h2>Articles</h2>
           <p>À lire pour mieux préparer vos aventures</p>
@@ -128,43 +124,55 @@ function App() {
 
         <div className="articles-grid">
           <article className="article-card">
-            <img src="/Image Article 1.jpg" alt="Marcher vers l'inattendu" />
-            <span className="article-date">05 mai 2025</span>
-            <h3>Marcher vers l'inattendu</h3>
+            <img src="/Image Article 1.jpg" alt="Marcher vers l’inattendu" />
+            <span className="article-date">04 décembre 2025</span>
+            <h3>Marcher vers l’inattendu</h3>
             <span className="category-badge">Exploration</span>
-            <p>Il y a des chemins qui ne se contentent pas de nous mener quelque part. Ils nous transforment.</p>
-            <button className="read-more-btn">Lire l'article →</button>
+            <p>Cela fait un moment que je souhaitais tenter la randonnée sur glacier.Après plus d’un an en Islande, j’ai enfin testé cette activité d’aventure.</p>
+            <button 
+              className="read-more-btn"
+              onClick={() => window.open("https://guidetoiceland.is/fr/contactez-des-blogueurs-en-islande/emilie-pasquet/la-randonnee-sur-glacier-en-islande", "_blank")}
+            >
+              Lire l'article →
+            </button>
           </article>
 
           <article className="article-card">
-            <img src="/Image Article 2.jpg" alt="Préparer l'essentiel" />
-            <span className="article-date">05 mai 2025</span>
+            <img src="/Image Article 2.jpg" alt="Préparer l’essentiel" />
+            <span className="article-date">25 novembre 2025</span>
             <h3>Préparer l'essentiel</h3>
             <span className="category-badge">Organisation</span>
-            <p>Avant de partir, il y a ce moment suspendu où chaque objet compte.</p>
-            <button className="read-more-btn">Lire l'article →</button>
+            <p>Que l’on arpente les sentiers enneigés en plein cœur de l’hiver ou que l’on profite des journées fraîches de mi-saison,  bien s’équiper reste la clé..</p>
+            <button 
+              className="read-more-btn"
+              onClick={() => window.open("https://www.mon-sejour-en-montagne.com/tests/10-equipements-incontournables-pour-profiter-de-la-randonnee-meme-en-plein-hiver/", "_blank")}
+            >
+              Lire l'article →
+            </button>
           </article>
 
           <article className="article-card">
-            <img src="/Image Article 3.jpg" alt="Le luxe du minimal" />
-            <span className="article-date">05 mai 2025</span>
-            <h3>Le luxe du minimal</h3>
+            <img src="/Image Article 3.jpg" alt="Les cinq plus beaux endroits pour faire du camping" />
+            <span className="article-date">31 mars 2025</span>
+            <h3>Les cinq plus beaux endroits pour faire du camping</h3>
             <span className="category-badge">Camping</span>
-            <p>Quand le feu crépite et que la forêt s'éveille doucement...</p>
-            <button className="read-more-btn">Lire l'article →</button>
+            <p>C’est indéniable, le camping sauvage demande de l’énergie. Ainsi qu’un certain portefeuille, si vous ne pouvez pas louer ou emprunter... </p>
+            <button 
+              className="read-more-btn"
+              onClick={() => window.open("https://www.nationalgeographic.fr/voyage/guide-conseils-trekking-randonnees-les-cinq-plus-beaux-endroits-pour-faire-du-camping-sauvage-en-europe", "_blank")}
+            >
+              Lire l'article →
+            </button>
           </article>
         </div>
       </section>
-        
 
-      {/* 6. PIED DE PAGE (BAS) - IMAGE CONSERVÉE */}
+      {/* 6. PIED DE PAGE (BAS) */}
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-column logo-col">
-            {/* On utilise footer-logo-img pour cibler le style image du CSS */}
             <img src="/Logo Sentiers Libres.png" alt="Sentiers Libres" className="footer-logo-img" />
           </div>
- 
           <div className="footer-column links-col">
             <h3>Plan du site</h3>
             <div className="footer-links-grid">
@@ -178,7 +186,6 @@ function App() {
               </div>
             </div>
           </div>
- 
           <div className="footer-column social-col">
             <h3>Suivez-nous sur nos réseaux !</h3>
             <div className="social-icons">
@@ -194,57 +201,49 @@ function App() {
             </div>
           </div>
         </div>
- 
         <div className="footer-bottom">
-          <p>© Copyright 2023 | <a href="#">Mentions légales</a> | Tous droits réservés | Propulsé par Engie®</p>
+          <p>© Copyright 2026 | <a href="#">Mentions légales</a> | Tous droits réservés | Propulsé par Sentiers Libres®</p>
         </div>
       </footer>
-          {isChatOpen && (
-      <div className="chat-overlay">
-        <div className="chat-widget">
 
-          {/* HEADER */}
-          <div className="chat-header">
-            <h3>Assistant randonnée</h3>
-            <button onClick={() => setIsChatOpen(false)}>✕</button>
+      {/* MODAL CHAT OVERLAY */}
+      {isChatOpen && (
+        <div className="chat-overlay">
+          <div className="chat-widget">
+            <div className="chat-header">
+              <h3>Assistant randonnée</h3>
+              <button onClick={() => setIsChatOpen(false)}>✕</button>
+            </div>
+            <div className="chat-messages">
+              {messages.length === 0 && (
+                <div className="bot-reply">
+                  Bonjour 😊 Je serai votre guide pour trouver votre randonnée idéale.
+                </div>
+              )}
+              {messages.map((msg, index) => (
+                <div
+                  key={index}
+                  className={msg.isBot ? "bot-reply" : "user-query"}
+                >
+                  {msg.text}
+                </div>
+              ))}
+            </div>
+            <div className="chat-input">
+              <input
+                type="text"
+                placeholder="Posez votre question..."
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSend()}
+              />
+              <button onClick={handleSend}>Envoyer</button>
+            </div>
           </div>
-
-          {/* MESSAGES */}
-          <div className="chat-messages">
-            {messages.length === 0 && (
-              <div className="bot-reply">
-                Bonjour 😊 Je serai votre guide pour trouver votre randonnée idéale.
-              </div>
-            )}
-
-            {messages.map((msg, index) => (
-              <div
-                key={index}
-                className={msg.isBot ? "bot-reply" : "user-query"}
-              >
-                {msg.text}
-              </div>
-            ))}
-          </div>
-
-          {/* INPUT */}
-          <div className="chat-input">
-            <input
-              type="text"
-              placeholder="Posez votre question..."
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSend()}
-            />
-            <button onClick={handleSend}>Envoyer</button>
-          </div>
-
         </div>
-      </div>
-    )}
+      )}
     </div>
   );
-
 }
 
 export default App;

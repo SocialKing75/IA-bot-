@@ -1,4 +1,19 @@
-/* Style global */
+/* =========================================
+    0. RÉGLAGES DE NAVIGATION FLUIDE
+   ========================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+section, 
+.main-content, 
+.hero-header {
+  scroll-margin-top: 80px;
+}
+
+/* =========================================
+    STYLE GLOBAL
+   ========================================= */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -6,7 +21,6 @@ body {
   color: #000;
 }
 
-/* Conteneur principal */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -14,6 +28,9 @@ body {
   position: relative;
 }
 
+/* =========================================
+    1. BARRE DE NAVIGATION (HAUT)
+   ========================================= */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -28,12 +45,11 @@ body {
   border-bottom: none;
 }
 
-
 .nav-logo-text {
   font-family: 'Inter', sans-serif;
   font-size: 1.8rem;
   font-weight: 900;       
-  color: white;          
+  color: white;           
   letter-spacing: -1.5px; 
   text-transform: none;
   cursor: default;
@@ -45,21 +61,25 @@ body {
   gap: 30px;
   margin: 0;
   padding: 0;
+  align-items: center;
 }
 
-.nav-links a {
+.nav-links a, 
+.nav-links li a {
   text-decoration: none;
-  color: white; 
-  font-weight: 500;
+  color: white !important; 
+  font-size: 1.5rem !important; 
+  font-weight: 600;
   transition: opacity 0.3s;
 }
 
 .nav-links a:hover {
   opacity: 0.8;
-  color: white;
 }
 
-
+/* =========================================
+    2. SECTION ACCROCHE (HERO)
+   ========================================= */
 .hero-header {
   width: 100%;
   height: 1000px; 
@@ -86,6 +106,8 @@ body {
   text-align: center;
   color: white;
   max-width: 900px;
+  /* MODIFICATION : On remonte le texte en ajoutant de la marge en bas */
+  margin-bottom: 120px; 
 }
 
 .hero-main-title {
@@ -97,13 +119,15 @@ body {
 }
 
 .hero-intro {
-  font-size: 1.3rem;
-  font-weight: 400;
+  font-size: 1.6rem; 
+  font-weight: 500;
   line-height: 1.6;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
-
+/* =========================================
+    3. SECTION PRINCIPALE (IA CHAT)
+   ========================================= */
 .main-content {
   display: flex;
   flex-direction: row;
@@ -130,9 +154,16 @@ body {
   margin-bottom: 15px;
 }
 
+.hero-left p {
+  font-size: 1.5rem; 
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
 .chat-input-area {
   background: white;
-  padding: 12px 25px;
+  padding: 15px 25px;
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -144,22 +175,9 @@ body {
 .chat-input-area input {
   flex: 1;
   border: none;
-  font-size: 1rem;
+  font-size: 1.4rem; 
   outline: none;
 }
-
-.send-button { background: none; border: none; cursor: pointer; }
-
-.chat-history {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.user-query { align-self: flex-end; background-color: #007bff; color: white; padding: 10px 15px; border-radius: 15px; }
-.bot-reply { align-self: flex-start; background-color: #e9e9eb; color: #333; padding: 10px 15px; border-radius: 15px; }
 
 .hero-right-image img {
   width: 100%;
@@ -169,7 +187,9 @@ body {
   object-fit: cover;
 }
 
-
+/* =========================================
+    4. SECTION RANDONNÉES
+   ========================================= */
 .trending-section {
   width: 100% !important;
   padding: 100px 0;
@@ -199,11 +219,11 @@ body {
 }
 
 .section-header p {
-  font-size: 1.2rem;
+  font-size: 1.5rem; 
   color: #333;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .cards-grid {
@@ -236,7 +256,9 @@ body {
   display: block;
 }
 
-
+/* =========================================
+    5. SECTION ARTICLES
+   ========================================= */
 .articles-section {
   padding: 80px 10%;
   background-color: #f0f2f5;
@@ -304,9 +326,11 @@ body {
   transform: translateX(5px);
 }
 
-
+/* =========================================
+    6. PIED DE PAGE (BAS)
+   ========================================= */
 .footer {
-  background-color: #000; 
+  background-color: #000;
   color: white;
   padding: 60px 10% 20px 10%;
   margin-top: 0px;
@@ -323,13 +347,13 @@ body {
 
 .footer-logo-img {
   height: 60px !important;  
-  width: auto !important;   
+  width: auto !important;    
   display: block !important; 
   opacity: 1 !important;     
 }
 
 .footer-column h3 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -348,7 +372,8 @@ body {
 .footer-column a {
   color: white;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 1.25rem;
+  font-weight: 600;
   transition: opacity 0.3s;
 }
 
@@ -356,213 +381,12 @@ body {
   opacity: 0.7;
 }
 
-/* ICÔNES SOCIALES */
 .social-icons {
   display: flex;
   gap: 15px;
   margin-top: 10px;
 }
 
-.social-icon-img {
-  width: 32px;  
-  height: 32px;
-  object-fit: contain;
-  transition: transform 0.2s ease;
-  filter: brightness(0) invert(1); 
-}
-
-.social-icon-img:hover {
-  transform: scale(1.15);
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: 20px;
-  font-size: 0.8rem;
-  color: #888;
-}
-
-.footer-bottom a {
-  color: #888;
-  text-decoration: underline;
-}
-
-
-@media (max-width: 768px) {
-  .section-header h2 { font-size: 1.8rem; }
-  .section-header p { font-size: 1rem; padding: 0 20px; }
-  .cards-grid, .articles-grid { grid-template-columns: 1fr; }
-  .main-content { flex-direction: column; text-align: center; width: 90%; }
-  .hero-left h1 { font-size: 2rem; }
-  .rando-card { height: 400px; }
-  .trending-section { background-size: 150px !important; } 
-  .hero-main-title { font-size: 2rem; }
-  .navbar { position: relative; background-color: white; flex-direction: column; gap: 15px; }
-  .nav-logo, .nav-links a { color: #222; }
-}
-
-
-.chat-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: 2000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.chat-widget {
-  background: white;
-  width: 420px;
-  height: 550px;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-}
-
-/* HEADER */
-.chat-header {
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-}
-
-.chat-header h3 {
-  margin: 0;
-}
-
-.chat-header button {
-  border: none;
-  background: black;
-  color: white;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-}
-
-/* MESSAGES */
-.chat-messages {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* INPUT */
-.chat-input {
-  display: flex;
-  gap: 10px;
-  padding: 15px;
-  border-top: 1px solid #eee;
-}
-
-.chat-input input {
-  flex: 1;
-  padding: 12px 15px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  outline: none;
-}
-
-.chat-input button {
-  padding: 12px 18px;
-  border-radius: 20px;
-  border: none;
-  background: black;
-  color: white;
-  cursor: pointer;
-}
-
-/* Teaser cliquable */
-.chat-teaser {
-  cursor: pointer;
-}
-
-.chat-teaser input {
-  cursor: pointer;
-}
-
-.loading {
-  font-style: italic;
-  opacity: 0.7;
-  animation: blink 1.4s infinite;
-}
-
-@keyframes blink {
-  0% { opacity: 0.3; }
-  50% { opacity: 0.7; }
-  100% { opacity: 0.3; }
-}
-
-/* =========================================
-   6. PIED DE PAGE (BAS)
-   ========================================= */
-.footer {
-  background-color: #000;
-  color: white;
-  padding: 60px 10% 20px 10%;
-  margin-top: 0px;
-}
- 
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 40px;
-}
- 
-/* On force l'affichage de l'IMAGE du footer */
-.footer-logo-img {
-  height: 60px !important;  /* Force la hauteur */
-  width: auto !important;    /* Garde le ratio */
-  display: block !important; /* Force l'affichage */
-  opacity: 1 !important;     /* Assure la visibilité */
-}
- 
-.footer-column h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
- 
-.footer-links-grid {
-  display: flex;
-  gap: 60px;
-}
- 
-.footer-links-left, .footer-links-right {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
- 
-.footer-column a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: opacity 0.3s;
-}
- 
-.footer-column a:hover {
-  opacity: 0.7;
-}
- 
-/* ICÔNES SOCIALES */
-.social-icons {
-  display: flex;
-  gap: 15px;
-  margin-top: 10px;
-}
- 
 .social-icon-img {
   width: 32px;  
   height: 32px;
@@ -570,43 +394,14 @@ body {
   transition: transform 0.2s ease;
   filter: brightness(0) invert(1);
 }
- 
+
 .social-icon-img:hover {
   transform: scale(1.15);
 }
- 
+
 .footer-bottom {
   text-align: center;
   padding-top: 20px;
   font-size: 0.8rem;
   color: #888;
 }
- 
-.footer-bottom a {
-  color: #888;
-  text-decoration: underline;
-}
- 
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-@media (max-width: 768px) {
-  .section-header h2 { font-size: 1.8rem; }
-  .section-header p { font-size: 1rem; padding: 0 20px; }
-  .cards-grid, .articles-grid { grid-template-columns: 1fr; }
-  .main-content { flex-direction: column; text-align: center; width: 90%; }
-  .hero-left h1 { font-size: 2rem; }
-  .rando-card { height: 400px; }
-  .trending-section { background-size: 150px !important; }
-  .hero-main-title { font-size: 2rem; }
-  .navbar { position: relative; background-color: white; flex-direction: column; gap: 15px; }
- 
-  /* En mobile, on s'assure que le texte du haut redevient noir si le fond devient blanc */
-  .nav-logo-text { color: #222; }
- 
-  .nav-links a { color: #222; }
-  .footer-content { flex-direction: column; text-align: center; }
-  .footer-links-grid { justify-content: center; gap: 30px; }
-  .social-icons { justify-content: center; }
-}
- 
