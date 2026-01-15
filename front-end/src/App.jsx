@@ -28,9 +28,7 @@ function App() {
 
       setMessages((prev) =>
         prev.map((msg) =>
-          msg.thinking
-            ? { text: data.bot, isBot: true }
-            : msg
+          msg.thinking ? { text: data.bot, isBot: true } : msg
         )
       );
 
@@ -38,9 +36,7 @@ function App() {
       console.error("Erreur de connexion", error);
       setMessages((prev) =>
         prev.map((msg) =>
-          msg.thinking
-            ? { text: "Erreur de connexion 😢", isBot: true }
-            : msg
+          msg.thinking ? { text: "Erreur de connexion 😢", isBot: true } : msg
         )
       );
     }
@@ -48,9 +44,9 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* 1. BARRE DE NAVIGATION (HAUT) */}
+      {/* NAVBAR */}
       <nav className="navbar">
-        <div className="nav-logo-text">Sentiers Libres</div> 
+        <div className="nav-logo-text">Sentiers Libres</div>
         <ul className="nav-links">
           <li><a href="#accueil">Accueil</a></li>
           <li><a href="#conseils">Nos conseils</a></li>
@@ -59,7 +55,7 @@ function App() {
         </ul>
       </nav>
 
-      {/* 2. SECTION ACCROCHE */}
+      {/* HERO */}
       <header className="hero-header" id="accueil">
         <div className="hero-overlay">
           <div className="hero-header-content">
@@ -71,17 +67,17 @@ function App() {
         </div>
       </header>
 
-      {/* 3. SECTION PRINCIPALE (ASSISTANT IA) */}
+      {/* MAIN CONTENT / WIDGET */}
       <div className="main-content" id="conseils">
         <div className="hero-left">
           <h1>Trouvez votre randonnée idéale avec notre assistant intelligent</h1>
           <p>Indiquez votre niveau, votre région, vos envies et laissez vous guider</p>
-          <div 
+          <div
             className="chat-input-area"
             onClick={() => setIsChatOpen(true)}
             style={{ cursor: "pointer" }}
           >
-            <input 
+            <input
               type="text"
               placeholder="Je recherche une randonnée en Bretagne..."
               disabled
@@ -89,39 +85,30 @@ function App() {
             />
           </div>
         </div>
-
         <div className="hero-right-image">
           <img src="/OIPP.jpg" alt="Paysage de montagne" />
         </div>
       </div>
 
-      {/* 4. SECTION RANDONNÉES INCONTOURNABLES */}
+      {/* RANDONNÉES */}
       <section className="trending-section" id="rando">
         <div className="section-header">
           <h2>Randonnées incontournables</h2>
           <p>Des parcours testés et approuvés pour une immersion garantie.</p>
         </div>
-
         <div className="cards-grid">
-          <div className="card rando-card">
-            <img src="/Jarak.png" alt="JARAK" className="full-card-img" />
-          </div>
-          <div className="card rando-card">
-            <img src="/Auvergne.png" alt="Volcans d'Auvergne" className="full-card-img" />
-          </div>
-          <div className="card rando-card">
-            <img src="/Pyrenees.png" alt="Pyrénées Orientales" className="full-card-img" />
-          </div>
+          <div className="card rando-card"><img src="/Jarak.png" alt="JARAK" className="full-card-img" /></div>
+          <div className="card rando-card"><img src="/Auvergne.png" alt="Volcans d'Auvergne" className="full-card-img" /></div>
+          <div className="card rando-card"><img src="/Pyrenees.png" alt="Pyrénées Orientales" className="full-card-img" /></div>
         </div>
       </section>
 
-      {/* 5. SECTION ARTICLES - AVEC LIENS CLIQUABLES */}
+      {/* ARTICLES */}
       <section className="articles-section" id="articles">
         <div className="section-header">
           <h2>Articles</h2>
           <p>À lire pour mieux préparer vos aventures</p>
         </div>
-
         <div className="articles-grid">
           <article className="article-card">
             <img src="/Image Article 1.jpg" alt="Marcher vers l’inattendu" />
@@ -129,45 +116,28 @@ function App() {
             <h3>Marcher vers l’inattendu</h3>
             <span className="category-badge">Exploration</span>
             <p>Cela fait un moment que je souhaitais tenter la randonnée sur glacier.Après plus d’un an en Islande, j’ai enfin testé cette activité d’aventure.</p>
-            <button 
-              className="read-more-btn"
-              onClick={() => window.open("https://guidetoiceland.is/fr/contactez-des-blogueurs-en-islande/emilie-pasquet/la-randonnee-sur-glacier-en-islande", "_blank")}
-            >
-              Lire l'article →
-            </button>
+            <button className="read-more-btn" onClick={() => window.open("https://guidetoiceland.is/fr/contactez-des-blogueurs-en-islande/emilie-pasquet/la-randonnee-sur-glacier-en-islande", "_blank")}>Lire l'article →</button>
           </article>
-
           <article className="article-card">
             <img src="/Image Article 2.jpg" alt="Préparer l’essentiel" />
             <span className="article-date">25 novembre 2025</span>
             <h3>Préparer l'essentiel</h3>
             <span className="category-badge">Organisation</span>
-            <p>Que l’on arpente les sentiers enneigés en plein cœur de l’hiver ou que l’on profite des journées fraîches de mi-saison,  bien s’équiper reste la clé..</p>
-            <button 
-              className="read-more-btn"
-              onClick={() => window.open("https://www.mon-sejour-en-montagne.com/tests/10-equipements-incontournables-pour-profiter-de-la-randonnee-meme-en-plein-hiver/", "_blank")}
-            >
-              Lire l'article →
-            </button>
+            <p>Que l’on arpente les sentiers enneigés en plein cœur de l’hiver ou que l’on profite des journées fraîches de mi-saison,  bien s’équiper reste la clé.</p>
+            <button className="read-more-btn" onClick={() => window.open("https://www.mon-sejour-en-montagne.com/tests/10-equipements-incontournables-pour-profiter-de-la-randonnee-meme-en-plein-hiver/", "_blank")}>Lire l'article →</button>
           </article>
-
           <article className="article-card">
             <img src="/Image Article 3.jpg" alt="Les cinq plus beaux endroits pour faire du camping" />
             <span className="article-date">31 mars 2025</span>
             <h3>Les cinq plus beaux endroits pour faire du camping</h3>
             <span className="category-badge">Camping</span>
-            <p>C’est indéniable, le camping sauvage demande de l’énergie. Ainsi qu’un certain portefeuille, si vous ne pouvez pas louer ou emprunter... </p>
-            <button 
-              className="read-more-btn"
-              onClick={() => window.open("https://www.nationalgeographic.fr/voyage/guide-conseils-trekking-randonnees-les-cinq-plus-beaux-endroits-pour-faire-du-camping-sauvage-en-europe", "_blank")}
-            >
-              Lire l'article →
-            </button>
+            <p>C’est indéniable, le camping sauvage demande de l’énergie. Ainsi qu’un certain portefeuille, si vous ne pouvez pas louer ou emprunter...</p>
+            <button className="read-more-btn" onClick={() => window.open("https://www.nationalgeographic.fr/voyage/guide-conseils-trekking-randonnees-les-cinq-plus-beaux-endroits-pour-faire-du-camping-sauvage-en-europe", "_blank")}>Lire l'article →</button>
           </article>
         </div>
       </section>
 
-      {/* 6. PIED DE PAGE (BAS) */}
+      {/* FOOTER */}
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-column logo-col">
@@ -189,15 +159,9 @@ function App() {
           <div className="footer-column social-col">
             <h3>Suivez-nous sur nos réseaux !</h3>
             <div className="social-icons">
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-                <img src="/Logo Linkedin.png" alt="" className="social-icon-img" />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer">
-                <img src="/Logo Instagram.png" alt="" className="social-icon-img" />
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                <img src="/Logo Facebook.png" alt="" className="social-icon-img" />
-              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer"><img src="/Logo Linkedin.png" alt="" className="social-icon-img" /></a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer"><img src="/Logo Instagram.png" alt="" className="social-icon-img" /></a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer"><img src="/Logo Facebook.png" alt="" className="social-icon-img" /></a>
             </div>
           </div>
         </div>
@@ -206,7 +170,7 @@ function App() {
         </div>
       </footer>
 
-      {/* MODAL CHAT OVERLAY */}
+      {/* CHAT WIDGET */}
       {isChatOpen && (
         <div className="chat-overlay">
           <div className="chat-widget">
@@ -216,17 +180,10 @@ function App() {
             </div>
             <div className="chat-messages">
               {messages.length === 0 && (
-                <div className="bot-reply">
-                  Bonjour 😊 Je serai votre guide pour trouver votre randonnée idéale.
-                </div>
+                <div className="bot-reply">Bonjour 😊 Je serai votre guide pour trouver votre randonnée idéale.</div>
               )}
               {messages.map((msg, index) => (
-                <div
-                  key={index}
-                  className={msg.isBot ? "bot-reply" : "user-query"}
-                >
-                  {msg.text}
-                </div>
+                <div key={index} className={msg.isBot ? "bot-reply" : "user-query"}>{msg.text}</div>
               ))}
             </div>
             <div className="chat-input">
@@ -242,8 +199,16 @@ function App() {
           </div>
         </div>
       )}
+
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+

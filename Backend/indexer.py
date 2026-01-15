@@ -52,3 +52,19 @@ class TextIndexer:
         ranked_indices = similarities.argsort()[::-1][:top_k]
 
         return [self.documents[i] for i in ranked_indices]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

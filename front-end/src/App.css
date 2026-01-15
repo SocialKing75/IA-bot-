@@ -1,19 +1,10 @@
 /* =========================================
-    0. RÉGLAGES DE NAVIGATION FLUIDE
-   ========================================= */
+   STYLE GLOBAL
+========================================= */
 html {
   scroll-behavior: smooth;
 }
 
-section, 
-.main-content, 
-.hero-header {
-  scroll-margin-top: 80px;
-}
-
-/* =========================================
-    STYLE GLOBAL
-   ========================================= */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -29,28 +20,28 @@ body {
 }
 
 /* =========================================
-    1. BARRE DE NAVIGATION (HAUT)
-   ========================================= */
+   1. NAVBAR
+========================================= */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 30px 10%;
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1001; 
-  background-color: transparent; 
+  z-index: 1001;
+  background-color: transparent;
   border-bottom: none;
 }
 
 .nav-logo-text {
   font-family: 'Inter', sans-serif;
   font-size: 1.8rem;
-  font-weight: 900;       
-  color: white;           
-  letter-spacing: -1.5px; 
+  font-weight: 900;
+  color: white;
+  letter-spacing: -1.5px;
   text-transform: none;
   cursor: default;
 }
@@ -61,14 +52,12 @@ body {
   gap: 30px;
   margin: 0;
   padding: 0;
-  align-items: center;
 }
 
-.nav-links a, 
-.nav-links li a {
+.nav-links a {
   text-decoration: none;
-  color: white !important; 
-  font-size: 1.5rem !important; 
+  color: white !important;
+  font-size: 1.5rem !important;
   font-weight: 600;
   transition: opacity 0.3s;
 }
@@ -78,18 +67,18 @@ body {
 }
 
 /* =========================================
-    2. SECTION ACCROCHE (HERO)
-   ========================================= */
+   HERO / ACCROCHE
+========================================= */
 .hero-header {
   width: 100%;
-  height: 1000px; 
-  background-image: url('/Fond header.png'); 
+  height: 1000px;
+  background-image: url('/Fond header.png');
   background-size: cover;
   background-position: center;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .hero-overlay {
@@ -106,8 +95,6 @@ body {
   text-align: center;
   color: white;
   max-width: 900px;
-  /* MODIFICATION : On remonte le texte en ajoutant de la marge en bas */
-  margin-bottom: 120px; 
 }
 
 .hero-main-title {
@@ -119,15 +106,15 @@ body {
 }
 
 .hero-intro {
-  font-size: 1.6rem; 
+  font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.6;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 }
 
 /* =========================================
-    3. SECTION PRINCIPALE (IA CHAT)
-   ========================================= */
+   SECTION PRINCIPALE / CHAT
+========================================= */
 .main-content {
   display: flex;
   flex-direction: row;
@@ -155,7 +142,7 @@ body {
 }
 
 .hero-left p {
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   color: #444;
   line-height: 1.5;
   margin-bottom: 25px;
@@ -175,7 +162,7 @@ body {
 .chat-input-area input {
   flex: 1;
   border: none;
-  font-size: 1.4rem; 
+  font-size: 1.4rem;
   outline: none;
 }
 
@@ -188,8 +175,8 @@ body {
 }
 
 /* =========================================
-    4. SECTION RANDONNÉES
-   ========================================= */
+   RANDONNÉES / CARDS
+========================================= */
 .trending-section {
   width: 100% !important;
   padding: 100px 0;
@@ -197,11 +184,11 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #f8f9fa !important;
-  background-image: url('/Topographie.png?v=2') !important; 
-  background-repeat: repeat !important; 
+  background-image: url('/Topographie.png?v=2') !important;
+  background-repeat: repeat !important;
   background-position: center !important;
-  background-size: 400px !important; 
-  background-attachment: scroll !important; 
+  background-size: 400px !important;
+  background-attachment: scroll !important;
   border-top: 1px solid #eee;
 }
 
@@ -219,7 +206,7 @@ body {
 }
 
 .section-header p {
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   color: #333;
   max-width: 800px;
   margin: 0 auto;
@@ -236,11 +223,11 @@ body {
 }
 
 .rando-card {
-  height: 500px;      
+  height: 500px;
   border-radius: 20px;
-  overflow: hidden;   
+  overflow: hidden;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  display: flex;      
+  display: flex;
   background-color: #fff;
   transition: transform 0.3s ease;
 }
@@ -251,14 +238,14 @@ body {
 
 .full-card-img {
   width: 100%;
-  height: 100%;       
-  object-fit: cover;  
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
 /* =========================================
-    5. SECTION ARTICLES
-   ========================================= */
+   ARTICLES
+========================================= */
 .articles-section {
   padding: 80px 10%;
   background-color: #f0f2f5;
@@ -296,7 +283,7 @@ body {
 
 .category-badge {
   display: inline-block;
-  background-color: #a3c1da; 
+  background-color: #a3c1da;
   color: white;
   padding: 6px 14px;
   border-radius: 8px;
@@ -327,8 +314,8 @@ body {
 }
 
 /* =========================================
-    6. PIED DE PAGE (BAS)
-   ========================================= */
+   FOOTER
+========================================= */
 .footer {
   background-color: #000;
   color: white;
@@ -346,10 +333,10 @@ body {
 }
 
 .footer-logo-img {
-  height: 60px !important;  
-  width: auto !important;    
-  display: block !important; 
-  opacity: 1 !important;     
+  height: 60px !important;
+  width: auto !important;
+  display: block !important;
+  opacity: 1 !important;
 }
 
 .footer-column h3 {
@@ -381,6 +368,7 @@ body {
   opacity: 0.7;
 }
 
+/* ICÔNES SOCIALES */
 .social-icons {
   display: flex;
   gap: 15px;
@@ -388,7 +376,7 @@ body {
 }
 
 .social-icon-img {
-  width: 32px;  
+  width: 32px;
   height: 32px;
   object-fit: contain;
   transition: transform 0.2s ease;
@@ -406,3 +394,120 @@ body {
   color: #888;
 }
 
+.footer-bottom a {
+  color: #888;
+  text-decoration: underline;
+}
+
+/* =========================================
+   CHAT WIDGET (fonctionnel)
+========================================= */
+.chat-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-widget {
+  background: white;
+  width: 650px;
+  height: 650px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.chat-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.chat-header h3 {
+  margin: 0;
+}
+
+.chat-header button {
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.chat-input button {
+  padding: 12px 18px;
+  border-radius: 20px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+.user-query { align-self: flex-end; background-color: #007bff; color: white; padding: 14px 18px; border-radius: 15px; max-width: 80%; line-height: 1.5; white-space: pre-wrap; }
+.bot-reply { align-self: flex-start; background-color: #e9e9eb; color: #333; padding: 14px 18px; border-radius: 15px;  line-height: 1.6; max-width: 90%; white-space: pre-wrap;}
+
+.loading {
+  font-style: italic;
+  opacity: 0.7;
+  animation: blink 1.4s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+  .section-header h2 { font-size: 1.8rem; }
+  .section-header p { font-size: 1rem; padding: 0 20px; }
+  .cards-grid, .articles-grid { grid-template-columns: 1fr; }
+  .main-content { flex-direction: column; text-align: center; width: 90%; }
+  .hero-left h1 { font-size: 2rem; }
+  .rando-card { height: 400px; }
+  .trending-section { background-size: 150px !important; }
+  .hero-main-title { font-size: 2rem; }
+  .navbar { position: relative; background-color: white; flex-direction: column; gap: 15px; }
+  .nav-logo-text { color: #222; }
+  .nav-links a { color: #222; }
+  .footer-content { flex-direction: column; text-align: center; }
+  .footer-links-grid { justify-content: center; gap: 30px; }
+  .social-icons { justify-content: center; }
+}
