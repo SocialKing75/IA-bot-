@@ -79,7 +79,7 @@ function App() {
           >
             <input
               type="text"
-              placeholder="Je recherche une randonnée en Bretagne..."
+              placeholder="Je recherche une randonnée en..."
               disabled
               style={{ pointerEvents: "none" }}
             />

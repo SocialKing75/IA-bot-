@@ -48,7 +48,7 @@ class TextIndexer:
         query_vec = self.vectorizer.transform([query])
         similarities = cosine_similarity(query_vec, self.vectors)[0]
 
-        # Trier par similarité décroissante
+        # Trier par similarité 
         ranked_indices = similarities.argsort()[::-1][:top_k]
 
         return [self.documents[i] for i in ranked_indices]
